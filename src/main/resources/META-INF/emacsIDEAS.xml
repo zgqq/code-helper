@@ -1,0 +1,5 @@
+<actions>
+    <!-- Add your actions here -->
+    <action id="Enhance.JumpAndGoDefinition" class="github.zgqq.intellij.enhance.JumpAndGoDefinitionAction" text="JumpAndGoDefinition"
+            description="JumpAndGoDefinition"/>
+</actions>
