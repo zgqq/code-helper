@@ -1,5 +1,10 @@
-<actions>
-    <!-- Add your actions here -->
-    <action id="Enhance.JumpAndGoDefinition" class="github.zgqq.intellij.enhance.JumpAndGoDefinitionAction" text="JumpAndGoDefinition"
-            description="JumpAndGoDefinition"/>
-</actions>
+<idea-plugin>
+    <actions>
+        <!-- Add your actions here -->
+        <group id="Enhance.Navigation" text="Enhance.Navigation" description="Enhance.Navigation">
+            <action id="Enhance.JumpAndGoDefinition" class="github.zgqq.intellij.enhance.JumpAndGoDefinitionAction"
+                    text="JumpAndGoDefinition"
+                    description="JumpAndGoDefinition"/>
+        </group>
+    </actions>
+</idea-plugin>

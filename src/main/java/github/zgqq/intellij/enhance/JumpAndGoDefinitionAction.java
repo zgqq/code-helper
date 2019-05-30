@@ -4,7 +4,6 @@ import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.playback.commands.ActionCommand;
-import com.intellij.openapi.util.ActionCallback;
 import org.hunmr.acejump.AceJumpAction;
 import org.hunmr.common.ChainActionEvent;
 
