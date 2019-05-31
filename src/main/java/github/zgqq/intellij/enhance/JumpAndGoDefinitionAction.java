@@ -21,17 +21,14 @@ public class JumpAndGoDefinitionAction extends AnAction {
     }
     
     private ChainActionEvent createActionEvent(AnActionEvent e) {
-        Runnable selectedHook = new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("selected");
-                String actionId = "GotoDeclaration";
-                AnAction action = ActionManager.getInstance().getAction(actionId);
-                InputEvent inputEvent = ActionCommand.getInputEvent(actionId);
-                ActionManager.getInstance().tryToExecute(action, inputEvent,
-                        null, ActionPlaces.UNKNOWN, true);
-                
-            }
+        Runnable selectedHook = () -> {
+            System.out.println("selected");
+            String actionId = "GotoDeclaration";
+            AnAction action = ActionManager.getInstance().getAction(actionId);
+            InputEvent inputEvent = ActionCommand.getInputEvent(actionId);
+            ActionManager.getInstance().tryToExecute(action, inputEvent,
+                    null, ActionPlaces.UNKNOWN, true);
+            
         };
         
         Editor newEditor = getEditorFrom(e);

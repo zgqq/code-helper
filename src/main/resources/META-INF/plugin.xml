@@ -1,12 +1,9 @@
 <idea-plugin>
     <id>github.zgqq.intellij-enhance</id>
-    <name>Plugin display name here</name>
-    <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+    <name>intellij enhance</name>
+    <vendor email="zgqjava@gmail.com" url="http://github.com">xa</vendor>
 
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-    ]]></description>
+    <description>add more features to nice intellij plugin</description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
