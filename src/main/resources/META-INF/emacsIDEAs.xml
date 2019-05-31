@@ -6,5 +6,10 @@
                     text="JumpAndGoDefinition"
                     description="JumpAndGoDefinition"/>
         </group>
+        <group id="Enhance.Change" text="Enhance.Change" description="Enhance.Change">
+            <action id="Enhance.JumpAndChangeWord" class="github.zgqq.intellij.enhance.JumpAndChangeWordAction"
+                    text="JumpAndChangeWord"
+                    description="JumpAndChangeWord"/>
+        </group>
     </actions>
 </idea-plugin>

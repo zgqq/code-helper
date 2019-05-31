@@ -12,7 +12,8 @@
     -->
 
     <depends>com.intellij.modules.platform</depends>
-    <depends optional="true" config-file="emacsIDEAS.xml">emacsIDEAs</depends>
+    <depends optional="true" config-file="emacsIDEAs.xml">emacsIDEAs</depends>
+    <depends>IdeaVIM</depends>
 
 
     <extensions defaultExtensionNs="com.intellij">
