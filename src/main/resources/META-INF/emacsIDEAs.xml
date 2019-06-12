@@ -11,5 +11,10 @@
                     text="JumpAndChangeWord"
                     description="JumpAndChangeWord"/>
         </group>
+        <group id="Enhance.Copy" text="Enhance.Copy" description="Enhance.Copy">
+            <action id="Enhance.CopyMethod" class="github.zgqq.intellij.enhance.CopyWholeMethodAction"
+                    text="CopyMethod"
+                    description="CopyMethod"/>
+        </group>
     </actions>
 </idea-plugin>
