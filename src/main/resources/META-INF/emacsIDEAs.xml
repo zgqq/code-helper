@@ -21,5 +21,10 @@
                     text="DeleteMethod"
                     description="DeleteMethod"/>
         </group>
+        <group id="Enhance.Convert" text="Enhance.Convert" description="Enhance.Convert">
+            <action id="Enhance.ConvertRedisKey" class="github.zgqq.intellij.enhance.ConvertRedisFormatAction"
+                    text="ConvertRedisKey"
+                    description="ConvertRedisKey"/>
+        </group>
     </actions>
 </idea-plugin>
