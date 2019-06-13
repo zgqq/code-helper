@@ -16,5 +16,10 @@
                     text="CopyMethod"
                     description="CopyMethod"/>
         </group>
+        <group id="Enhance.Delete" text="Enhance.Delete" description="Enhance.Delete">
+            <action id="Enhance.DeleteMethod" class="github.zgqq.intellij.enhance.DeleteWholeMethodAction"
+                    text="DeleteMethod"
+                    description="DeleteMethod"/>
+        </group>
     </actions>
 </idea-plugin>
