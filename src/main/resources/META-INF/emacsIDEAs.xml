@@ -26,5 +26,15 @@
                     text="ConvertRedisKey"
                     description="ConvertRedisKey"/>
         </group>
+        <group id="Enhance.Show" text="Enhance.Show" description="Enhance.Show">
+            <action id="Enhance.ShowPsiElement" class="github.zgqq.intellij.enhance.ShowPsiElementAction"
+                    text="ShowPsiElement"
+                    description="ShowPsiElement"/>
+        </group>
+        <group id="Enhance.Create" text="Enhance.Create" description="Enhance.Create">
+            <action id="Enhance.CreateRedisKey" class="github.zgqq.intellij.enhance.CreateRedisFieldAction"
+                    text="CreateRedisKey"
+                    description="CreateRedisKey"/>
+        </group>
     </actions>
 </idea-plugin>

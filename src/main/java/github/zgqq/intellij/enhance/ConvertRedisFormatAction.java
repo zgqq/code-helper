@@ -9,10 +9,7 @@ import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.ide.CopyPasteManager;
 import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiIdentifier;
-import com.intellij.psi.PsiJavaFile;
-import com.intellij.psi.PsiWhiteSpace;
+import com.intellij.psi.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.datatransfer.DataFlavor;
