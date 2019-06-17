@@ -42,5 +42,10 @@
                     text="CreateRedisKey"
                     description="CreateRedisKey"/>
         </group>
+        <group id="Enhance.Indent" text="Enhance.Indent" description="Enhance.Indent">
+            <action id="Enhance.AutoIndent" class="github.zgqq.intellij.enhance.AutoIndentAction"
+                    text="AutoIndent"
+                    description="AutoIndent"/>
+        </group>
     </actions>
 </idea-plugin>
