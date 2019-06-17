@@ -5,6 +5,9 @@
             <action id="Enhance.JumpAndGoDefinition" class="github.zgqq.intellij.enhance.JumpAndGoDefinitionAction"
                     text="JumpAndGoDefinition"
                     description="JumpAndGoDefinition"/>
+            <action id="Enhance.GoDeclarationByVariable" class="github.zgqq.intellij.enhance.GoDeclarationByVariableAction"
+                    text="GoDeclarationByVariable"
+                    description="GoDeclarationByVariable"/>
         </group>
         <group id="Enhance.Change" text="Enhance.Change" description="Enhance.Change">
             <action id="Enhance.JumpAndChangeWord" class="github.zgqq.intellij.enhance.JumpAndChangeWordAction"

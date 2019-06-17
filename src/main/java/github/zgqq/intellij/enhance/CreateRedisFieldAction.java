@@ -16,6 +16,8 @@ import com.intellij.psi.util.PsiTreeUtil;
 import com.intellij.psi.util.PsiUtil;
 import org.jetbrains.annotations.NotNull;
 
+import static github.zgqq.intellij.enhance.PsiUtils.searchPsiClass;
+
 
 public class CreateRedisFieldAction extends AnAction {
     
@@ -93,22 +95,10 @@ public class CreateRedisFieldAction extends AnAction {
         PsiImportStatementBase singleImportStatement = data.
                 getImportList().findSingleImportStatement(typePsi.getText());
         if (singleImportStatement == null) {
-            final PsiClass[] classesByName = PsiShortNamesCache.getInstance(project).getClassesByName(typePsi.getText(),
-                    GlobalSearchScope.projectScope(project));
-            String fullname = data.getPackageName() + "." + typePsi.getText();
-            ConsoleUtils.log("Searching fullname " + fullname);
-            if (classesByName != null && classesByName.length > 0) {
-                for (PsiClass psiClass : classesByName) {
-                    ConsoleUtils.log("Matching class " + psiClass.getQualifiedName());
-                    if (psiClass.getQualifiedName().equals(fullname)) {
-                        targetClass = psiClass;
-                    }
-                }
-            }
+            targetClass = searchPsiClass(data, project, targetClass, typePsi);
         } else {
             targetClass = (PsiClass) singleImportStatement.resolve();
         }
-        
         return targetClass;
     }
 }
