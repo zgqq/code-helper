@@ -3,7 +3,7 @@ package github.zgqq.intellij.enhance;
 import com.intellij.psi.PsiElement;
 
 public class ConsoleUtils {
-    static boolean needLog = false;
+    static boolean needLog = true;
     
     
     public static void log(String tag, PsiElement psiElement) {

@@ -15,6 +15,9 @@
             <action id="Enhance.CopyMethod" class="github.zgqq.intellij.enhance.CopyWholeMethodAction"
                     text="CopyMethod"
                     description="CopyMethod"/>
+            <action id="Enhance.CopyIfStatement" class="github.zgqq.intellij.enhance.CopyIfStatementAction"
+                    text="CopyIfStatement"
+                    description="CopyIfStatement"/>
         </group>
         <group id="Enhance.Delete" text="Enhance.Delete" description="Enhance.Delete">
             <action id="Enhance.DeleteMethod" class="github.zgqq.intellij.enhance.DeleteWholeMethodAction"
