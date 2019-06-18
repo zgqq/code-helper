@@ -14,23 +14,24 @@ import org.jetbrains.annotations.NotNull;
 
 
 public class AutoIndentAction extends AnAction {
-    
+
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
         Editor editor = CommonUtils.getEditorFrom(e);
         WriteCommandAction.runWriteCommandAction(editor.getProject(),
                 () -> {
-                    insertNewLineAtCaret(editor);});
+                    insertNewLineAtCaret(editor);
+                });
     }
-    
+
 
     public static void insertNewLineAtCaret(Editor editor) {
         EditorUIUtil.hideCursorInEditor(editor);
         Document document = editor.getDocument();
-        if(!editor.isInsertMode()) {
+        if (!editor.isInsertMode()) {
             int caretLine = editor.getCaretModel().getLogicalPosition().line;
             int lineCount = document.getLineCount();
-            if(caretLine < lineCount) {
+            if (caretLine < lineCount) {
                 if (caretLine == lineCount - 1) {
                     document.insertString(document.getTextLength(), "\n");
                 }
@@ -48,7 +49,7 @@ public class AutoIndentAction extends AnAction {
         final LogicalPosition logicalPosition = editor.getCaretModel().getLogicalPosition();
         int caretOffset = editor.getCaretModel().getOffset();
 
-        editor.getCaretModel().moveToLogicalPosition(new LogicalPosition(logicalPosition.line-1, logicalPosition.column));
+        editor.getCaretModel().moveToLogicalPosition(new LogicalPosition(logicalPosition.line - 1, logicalPosition.column));
         int newCaretOffset = editor.getCaretModel().getOffset();
         editor.getCaretModel().moveToLogicalPosition(logicalPosition);
 

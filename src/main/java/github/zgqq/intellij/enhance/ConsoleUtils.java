@@ -3,11 +3,11 @@ package github.zgqq.intellij.enhance;
 import com.intellij.psi.PsiElement;
 
 public class ConsoleUtils {
-    static boolean needLog = true;
+    static boolean needLog = false;
     
     
     public static void log(String tag, PsiElement psiElement) {
-        if (needLog) {
+        if (needLog && psiElement != null) {
             System.out.println("------------");
             System.out.println("tag:" + tag);
             System.out.println("class:" + psiElement.getClass().getCanonicalName());
