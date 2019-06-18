@@ -39,6 +39,9 @@
             <action id="Enhance.ShowPsiElement" class="github.zgqq.intellij.enhance.ShowPsiElementAction"
                     text="ShowPsiElement"
                     description="ShowPsiElement"/>
+            <action id="Enhance.ShowParentAction" class="github.zgqq.intellij.enhance.ShowParentAction"
+                    text="ShowParentAction"
+                    description="ShowParentAction"/>
         </group>
         <group id="Enhance.Create" text="Enhance.Create" description="Enhance.Create">
             <action id="Enhance.CreateRedisKey" class="github.zgqq.intellij.enhance.CreateRedisFieldAction"

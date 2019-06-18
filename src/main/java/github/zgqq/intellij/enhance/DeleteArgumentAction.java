@@ -9,12 +9,11 @@ import com.intellij.openapi.diagnostic.Logger;
 import com.intellij.openapi.editor.Document;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiExpression;
-import com.intellij.psi.PsiExpressionList;
-import com.intellij.psi.PsiJavaFile;
+import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTreeUtil;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.Collection;
 
 public class DeleteArgumentAction extends AnAction {
     private static final Logger logger = Logger.getInstance(JumpAndChangeWordAction.class);
@@ -35,16 +34,17 @@ public class DeleteArgumentAction extends AnAction {
         }
         return null;
     }
-    
+
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
         Editor editor = CommonUtils.getEditorFrom(e);
         final Document document = editor.getDocument();
         PsiJavaFile data = (PsiJavaFile) e.getData(LangDataKeys.PSI_FILE);
-        PsiElement pe = data.findElementAt(editor.getCaretModel().getOffset());
+        final int offset = editor.getCaretModel().getOffset();
+        PsiElement pe = data.findElementAt(offset);
         ConsoleUtils.log("parent", pe.getParent());
 
-
+        ConsoleUtils.logCaret(editor.getCaretModel());
         PsiExpressionList psiExpressionList = PsiTreeUtil.getParentOfType(pe, PsiExpressionList.class);
 
         PsiExpression currentArg = null;
@@ -59,6 +59,30 @@ public class DeleteArgumentAction extends AnAction {
                     ConsoleUtils.log("argChildEle", parentElement);
                 }
             }
+        } else {
+            final PsiStatement parentOfType = PsiTreeUtil.getParentOfType(pe, PsiStatement.class);
+            final Collection<PsiExpressionList> childrenOfType = PsiTreeUtil.findChildrenOfType(parentOfType, PsiExpressionList.class);
+
+
+            int minDistance = Integer.MAX_VALUE;
+            PsiExpressionList mostNearExpression = null;
+            for (PsiExpressionList expressionList : childrenOfType) {
+                ConsoleUtils.log("child", expressionList);
+                if (offset < expressionList.getTextOffset()) {
+                    int distance = expressionList.getTextOffset() - offset;
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        mostNearExpression = expressionList;
+                    }
+                }
+            }
+            psiExpressionList = mostNearExpression;
+            ConsoleUtils.log("expr", psiExpressionList);
+
+            if (psiExpressionList != null && psiExpressionList.getExpressionCount() > 0) {
+                currentArg = psiExpressionList.getExpressions()[0];
+                ConsoleUtils.log("argEle", currentArg);
+            }
         }
 
         if (currentArg != null) {
@@ -66,20 +90,8 @@ public class DeleteArgumentAction extends AnAction {
             WriteCommandAction.runWriteCommandAction(editor.getProject(),
                     () -> {
                         document.deleteString(textRange.getStartOffset(), textRange.getEndOffset());
+                        editor.getCaretModel().moveToOffset(textRange.getStartOffset());
                     });
         }
-
-
-//        PsiExpression ifStatement = PsiTreeUtil.getParentOfType(pe, PsiExpression.class);
-//        ConsoleUtils.log("if",ifStatement);
-
-//        PsiExpression ifStatement2 = PsiTreeUtil.getParentOfType(pe, PsiParenthesizedExpression.class);
-//        ConsoleUtils.log("if2",ifStatement2);
-
-//        ConsoleUtils.log("if3", ifStatement.getParent());
-//        ConsoleUtils.log("if4", ifStatement.getParent().getParent());
-//        ConsoleUtils.log("if5", ifStatement.getParent().getParent().getParent());
-//        PsiPolyadicExpression
-
     }
 }
