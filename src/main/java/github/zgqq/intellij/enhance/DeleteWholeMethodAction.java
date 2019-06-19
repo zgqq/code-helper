@@ -22,6 +22,5 @@ public class DeleteWholeMethodAction extends AnAction {
         IdeaVIMUtils.pressVimKeys(editor, 'd');
         
         caretModel.moveToLogicalPosition(logicalPosition);
-        
     }
 }

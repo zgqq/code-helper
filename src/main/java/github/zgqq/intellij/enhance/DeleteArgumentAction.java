@@ -18,22 +18,6 @@ import java.util.Collection;
 public class DeleteArgumentAction extends AnAction {
     private static final Logger logger = Logger.getInstance(JumpAndChangeWordAction.class);
 
-    public PsiElement findParentElement(PsiElement[] children, PsiElement target) {
-        if (children == null || children.length == 0) {
-            return null;
-        }
-        for (int i = 0; i < children.length; i++) {
-            final PsiElement child = children[i];
-            if (child.isEquivalentTo(target)) {
-                return child;
-            }
-            final PsiElement parentElement = findParentElement(child.getChildren(), target);
-            if (parentElement != null) {
-                return child;
-            }
-        }
-        return null;
-    }
 
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
@@ -52,7 +36,7 @@ public class DeleteArgumentAction extends AnAction {
             for (PsiExpression expression : psiExpressionList.getExpressions()) {
                 final PsiElement[] children = expression.getChildren();
                 ConsoleUtils.log("arg", expression);
-                final PsiElement parentElement = findParentElement(children, pe);
+                final PsiElement parentElement = PsiUtils.findParentElement(children, pe);
                 if (parentElement != null) {
                     currentArg = expression;
                     ConsoleUtils.log("argEle", expression);
@@ -64,20 +48,23 @@ public class DeleteArgumentAction extends AnAction {
             final Collection<PsiExpressionList> childrenOfType = PsiTreeUtil.findChildrenOfType(parentOfType, PsiExpressionList.class);
 
 
-            int minDistance = Integer.MAX_VALUE;
-            PsiExpressionList mostNearExpression = null;
-            for (PsiExpressionList expressionList : childrenOfType) {
-                ConsoleUtils.log("child", expressionList);
-                if (offset < expressionList.getTextOffset()) {
-                    int distance = expressionList.getTextOffset() - offset;
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        mostNearExpression = expressionList;
-                    }
-                }
-            }
-            psiExpressionList = mostNearExpression;
-            ConsoleUtils.log("expr", psiExpressionList);
+//            int minDistance = Integer.MAX_VALUE;
+//            PsiExpressionList mostNearExpression = null;
+//            for (PsiExpressionList expressionList : childrenOfType) {
+//                ConsoleUtils.log("child", expressionList);
+//                if (offset < expressionList.getTextOffset()) {
+//                    int distance = expressionList.getTextOffset() - offset;
+//                    if (distance < minDistance) {
+//                        minDistance = distance;
+//                        mostNearExpression = expressionList;
+//                    }
+//                }
+//            }
+//            psiExpressionList = mostNearExpression;
+//            ConsoleUtils.log("expr", psiExpressionList);
+
+            psiExpressionList = PsiUtils.findChildAfterOffset(childrenOfType, offset);
+
 
             if (psiExpressionList != null && psiExpressionList.getExpressionCount() > 0) {
                 currentArg = psiExpressionList.getExpressions()[0];

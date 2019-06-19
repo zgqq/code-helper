@@ -17,6 +17,9 @@
 
 
     <extensions defaultExtensionNs="com.intellij">
+      <toolWindow id="ShowPsiElement"
+              anchor="bottom"
+              factoryClass="com.intellij.execution.dashboard.RunDashboardToolWindowFactory"></toolWindow>
         <!-- Add your extensions here -->
     </extensions>
 
