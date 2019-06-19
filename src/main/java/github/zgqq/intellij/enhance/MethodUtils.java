@@ -17,7 +17,15 @@ public class MethodUtils {
 
     public static void selectCurrentMethod(@NotNull AnActionEvent e) {
         Editor editor = CommonUtils.getEditorFrom(e);
+        PsiElement pe = getCurrentMethodPsiElement(e);
+        final SelectionModel selectionModel = editor.getSelectionModel();
+        if (pe != null) {
+            selectionModel.setSelection(pe.getTextRange().getStartOffset(), pe.getTextRange().getEndOffset());
+        }
+    }
 
+    public static PsiElement getCurrentMethodPsiElement(@NotNull AnActionEvent e) {
+        Editor editor = CommonUtils.getEditorFrom(e);
         PsiJavaFile data = (PsiJavaFile) e.getData(LangDataKeys.PSI_FILE);
         CaretModel caretModel = editor.getCaretModel();
         Caret currentCaret = caretModel.getCurrentCaret();
@@ -32,24 +40,7 @@ public class MethodUtils {
             PsiClass psiClass = PsiTreeUtil.getParentOfType(pe, PsiClass.class);
             pe = PsiUtils.findChildAfterOffset(psiClass.getMethods(), offset);
         }
-
-        final SelectionModel selectionModel = editor.getSelectionModel();
-        if (pe != null) {
-            selectionModel.setSelection(pe.getTextRange().getStartOffset(), pe.getTextRange().getEndOffset());
-        }
-
-//        if (pe instanceof PsiAnnotation) {
-//            ActionUtils.execute("MethodDown");
-//        } else if (pe instanceof PsiMethod) {
-//            PsiMethod m = (PsiMethod) pe;
-//            int startOffset = m.getNameIdentifier().getTextRange().getStartOffset();
-//            currentCaret.moveToOffset(startOffset);
-//        }
-//
-//        IdeaVIMUtils.pressVimKeys(editor, 'v');
-//        ActionUtils.execute("EditorSelectWord");
-//        ActionUtils.execute("EditorSelectWord");
-
+        return pe;
     }
 
 }

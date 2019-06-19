@@ -4,9 +4,7 @@ package github.zgqq.intellij.enhance;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.diagnostic.Logger;
-import com.intellij.openapi.editor.CaretModel;
-import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.editor.LogicalPosition;
+import com.intellij.psi.PsiElement;
 import org.jetbrains.annotations.NotNull;
 
 public class CopyWholeMethodAction extends AnAction {
@@ -14,14 +12,7 @@ public class CopyWholeMethodAction extends AnAction {
     
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
-        Editor editor = CommonUtils.getEditorFrom(e);
-        CaretModel caretModel = editor.getCaretModel();
-        LogicalPosition logicalPosition = CommonUtils.getLogicalPosition(caretModel);
-    
-        MethodUtils.selectCurrentMethod(e);
-        IdeaVIMUtils.pressVimKeys(editor, 'y');
-        
-        caretModel.moveToLogicalPosition(logicalPosition);
-        
+        final PsiElement methodPsiElement = MethodUtils.getCurrentMethodPsiElement(e);
+        ClipboardUtils.setContents(methodPsiElement.getText());
     }
 }

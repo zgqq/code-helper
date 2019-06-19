@@ -53,5 +53,10 @@
                     text="AutoIndent"
                     description="AutoIndent"/>
         </group>
+        <group id="Enhance.Select" text="Enhance.Select" description="Enhance.Select">
+            <action id="Enhance.SelectMethod" class="github.zgqq.intellij.enhance.SelectWholeMethodAction"
+                    text="SelectMethod"
+                    description="SelectMethod"/>
+        </group>
     </actions>
 </idea-plugin>
