@@ -29,6 +29,9 @@
             <action id="Enhance.DeleteArgument" class="github.zgqq.intellij.enhance.DeleteArgumentAction"
                     text="DeleteArgument"
                     description="DeleteArgument"/>
+            <action id="Enhance.DeleteInnerArgument" class="github.zgqq.intellij.enhance.DeleteInnerArgumentAction"
+                    text="DeleteInnerArgument"
+                    description="DeleteInnerArgument"/>
         </group>
         <group id="Enhance.Convert" text="Enhance.Convert" description="Enhance.Convert">
             <action id="Enhance.ConvertRedisKey" class="github.zgqq.intellij.enhance.ConvertRedisFormatAction"

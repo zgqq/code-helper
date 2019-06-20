@@ -31,6 +31,7 @@ public class CopyIfStatementAction extends AnAction {
         PsiElement pe = data.findElementAt(editor.getCaretModel().getOffset());
     
         PsiIfStatement ifStatement = PsiTreeUtil.getParentOfType(pe, PsiIfStatement.class);
+
         ConsoleUtils.log("if",ifStatement);
         CopyPasteManager instance = CopyPasteManager.getInstance();
         StringSelection stringSelection = new StringSelection(ifStatement.getText());

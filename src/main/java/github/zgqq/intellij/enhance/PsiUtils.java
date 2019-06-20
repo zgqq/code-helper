@@ -2,15 +2,13 @@ package github.zgqq.intellij.enhance;
 
 import com.intellij.openapi.project.Project;
 import com.intellij.pom.Navigatable;
-import com.intellij.psi.PsiClass;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiJavaFile;
+import com.intellij.psi.*;
 import com.intellij.psi.search.GlobalSearchScope;
 import com.intellij.psi.search.PsiShortNamesCache;
+import com.intellij.psi.util.PsiTreeUtil;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 public class PsiUtils {
 
@@ -55,6 +53,7 @@ public class PsiUtils {
         }
         return null;
     }
+
     public static <T extends PsiElement> T findChildAfterOffset(T[] childrenOfType, int offset) {
         return findChildAfterOffset(Arrays.asList(childrenOfType), offset);
     }
@@ -63,6 +62,12 @@ public class PsiUtils {
         int minDistance = Integer.MAX_VALUE;
         T mostNearExpression = null;
         for (T expressionList : childrenOfType) {
+            if (expressionList instanceof PsiExpressionList) {
+                PsiExpressionList list = (PsiExpressionList) expressionList;
+                if (list.isEmpty()) {
+                    continue;
+                }
+            }
             ConsoleUtils.log("child", expressionList);
             final int textOffset = expressionList.getTextOffset();
             if (offset < textOffset) {
@@ -74,5 +79,18 @@ public class PsiUtils {
             }
         }
         return mostNearExpression;
+    }
+
+    public static PsiExpression findNextArgument(PsiElement parentOfType, int offset) {
+        PsiExpression currentArg = null;
+        PsiExpressionList psiExpressionList;
+        final Collection<PsiExpressionList> childrenOfType = PsiTreeUtil.findChildrenOfType(parentOfType, PsiExpressionList.class);
+        psiExpressionList = PsiUtils.findChildAfterOffset(childrenOfType, offset);
+
+        if (psiExpressionList != null && psiExpressionList.getExpressionCount() > 0) {
+            currentArg = psiExpressionList.getExpressions()[0];
+            ConsoleUtils.log("argEle", currentArg);
+        }
+        return currentArg;
     }
 }
