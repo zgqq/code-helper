@@ -1,5 +1,6 @@
 package github.zgqq.intellij.enhance;
 
+import com.intellij.execution.ui.ConsoleView;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.LangDataKeys;
@@ -15,12 +16,14 @@ public class ShowParentAction extends AnAction {
         Editor editor = CommonUtils.getEditorFrom(e);
         PsiJavaFile data = (PsiJavaFile) e.getData(LangDataKeys.PSI_FILE);
 
+        final ConsoleView consoleView = ConsoleUtils.getConsoleView(e);
+
         PsiElement pe = data.findElementAt(editor.getCaretModel().getOffset());
-        ConsoleUtils.print("if", pe, e);
-        ConsoleUtils.print("if2", pe.getParent(), e);
-        ConsoleUtils.print("if3", pe.getParent().getParent(), e);
-        ConsoleUtils.print("if4", pe.getParent().getParent().getParent(), e);
-        ConsoleUtils.print("if5", pe.getParent().getParent().getParent().getParent(), e);
-        ConsoleUtils.print("if6", pe.getParent().getParent().getParent().getParent().getParent(), e);
+        ConsoleUtils.print("if", pe, consoleView);
+        ConsoleUtils.print("if2", pe.getParent(), consoleView);
+        ConsoleUtils.print("if3", pe.getParent().getParent(), consoleView);
+        ConsoleUtils.print("if4", pe.getParent().getParent().getParent(), consoleView);
+        ConsoleUtils.print("if5", pe.getParent().getParent().getParent().getParent(), consoleView);
+        ConsoleUtils.print("if6", pe.getParent().getParent().getParent().getParent().getParent(), consoleView);
     }
 }

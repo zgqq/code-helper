@@ -10,6 +10,7 @@ import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowManager;
 import com.intellij.psi.PsiElement;
 import com.intellij.ui.content.Content;
+import org.jetbrains.annotations.NotNull;
 
 public class ConsoleUtils {
 
@@ -41,25 +42,29 @@ public class ConsoleUtils {
     }
 
     public static void print(String tag,
-                             PsiElement psiElement, AnActionEvent e) {
+                             PsiElement psiElement,
+                             ConsoleView consoleView) {
         log(tag, psiElement);
+        consoleView.print("------------\n", ConsoleViewContentType.NORMAL_OUTPUT);
+        consoleView.print("tag:" + tag + "\n", ConsoleViewContentType.NORMAL_OUTPUT);
+        consoleView.print("class:" + psiElement.getClass().getCanonicalName() + "\n", ConsoleViewContentType.NORMAL_OUTPUT);
+        consoleView.print("textOffset:" + psiElement.getTextOffset() + "\n", ConsoleViewContentType.NORMAL_OUTPUT);
+        consoleView.print("textRange:" + psiElement.getTextRange() + "\n", ConsoleViewContentType.NORMAL_OUTPUT);
+        consoleView.print("text:" + psiElement.getText() + "\n", ConsoleViewContentType.NORMAL_OUTPUT);
+        consoleView.print("file:" + psiElement.getContainingFile().getVirtualFile().getCanonicalPath() + "\n", ConsoleViewContentType.NORMAL_OUTPUT);
+        consoleView.print("------------\n", ConsoleViewContentType.NORMAL_OUTPUT);
+//        consoleView.attachToProcess();
+    }
+
+    @NotNull
+    public static ConsoleView getConsoleView(AnActionEvent e) {
         ToolWindow toolWindow = ToolWindowManager
-                .getInstance(e.getProject()).getToolWindow("ShowPsiElement");
+                .getInstance(e.getProject()).getToolWindow("Event Log");
         ConsoleView consoleView = TextConsoleBuilderFactory.getInstance().createBuilder(e.getProject()).getConsole();
         Content content = toolWindow.getContentManager().getFactory().createContent(consoleView.getComponent(),
                 "ShowPsiElement Output", false);
         toolWindow.getContentManager().addContent(content);
-
-
-        consoleView.print("Hello from MyPlugin!", ConsoleViewContentType.NORMAL_OUTPUT);
-        consoleView.print("------------", ConsoleViewContentType.NORMAL_OUTPUT);
-        consoleView.print("tag:" + tag, ConsoleViewContentType.NORMAL_OUTPUT);
-        consoleView.print("class:" + psiElement.getClass().getCanonicalName(), ConsoleViewContentType.NORMAL_OUTPUT);
-        consoleView.print("textOffset:" + psiElement.getTextOffset(), ConsoleViewContentType.NORMAL_OUTPUT);
-        consoleView.print("textRange:" + psiElement.getTextRange(), ConsoleViewContentType.NORMAL_OUTPUT);
-        consoleView.print("text:" + psiElement.getText(), ConsoleViewContentType.NORMAL_OUTPUT);
-        consoleView.print("file:" + psiElement.getContainingFile().getVirtualFile().getCanonicalPath(), ConsoleViewContentType.NORMAL_OUTPUT);
-        consoleView.print("------------", ConsoleViewContentType.NORMAL_OUTPUT);
+        return consoleView;
     }
 
 
