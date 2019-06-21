@@ -1,16 +1,17 @@
 # intellij-enhance
-Add some useful features to Intellij IDEA.
+增加一些非常好用的action
 
 # Usages
-- You can use this plugin with other plugins like ideavim.
-For example, mapping a key in ideavim to delete current method
-`nnoremap dam :action Enhance.DeleteMethod<CR>`
+- 配置成快捷键
+  * 你可以在 Preference -> Keymap  把插件的action 插件配置成快捷键
+- 结合ideavim， 比如在~/.ideavimrc 配置加入 
+ `nnoremap dam :action Enhance.DeleteMethod<CR>` 就可以 在 正常模式 键入dam 删除一个方法
 
 # Features 
-## Add SelectMethod action
-- action name: `Enhance.SelectMethod`
-- You can select current whole java method by execute this action.
+## SelectMethod action
+- name: `Enhance.SelectMethod`
+- 选择当前光标所在的java方法
 
-## Add DeleteMethod action
-- action name: `Enhance.DeleteMethod`
-- You can delete current whole java method by execute this action.
+## DeleteMethod action
+- name: `Enhance.DeleteMethod`
+- 删除当前光标所在的java方法
