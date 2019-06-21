@@ -8,6 +8,12 @@
             <action id="Enhance.GoDeclarationByVariable" class="github.zgqq.intellij.enhance.GoDeclarationByVariableAction"
                     text="GoDeclarationByVariable"
                     description="GoDeclarationByVariable"/>
+            <action id="Enhance.GotoMethodName" class="github.zgqq.intellij.enhance.GotoMethodNameAction"
+                    text="GotoMethodName"
+                    description="GotoMethodName"/>
+            <action id="Enhance.GotoClassName" class="github.zgqq.intellij.enhance.GotoClassNameAction"
+                    text="GotoClassName"
+                    description="GotoClassName"/>
         </group>
         <group id="Enhance.Change" text="Enhance.Change" description="Enhance.Change">
             <action id="Enhance.JumpAndChangeWord" class="github.zgqq.intellij.enhance.JumpAndChangeWordAction"

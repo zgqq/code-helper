@@ -28,9 +28,9 @@ public class PsiUtils {
         return targetClass;
     }
 
-    public static void navigate(PsiElement variableClass) {
-        if (variableClass instanceof Navigatable) {
-            Navigatable element = (Navigatable) variableClass;
+    public static void navigate(PsiElement psiElement) {
+        if (psiElement instanceof Navigatable) {
+            Navigatable element = (Navigatable) psiElement;
             if (element.canNavigate()) {
                 element.navigate(true);
             }
@@ -92,5 +92,12 @@ public class PsiUtils {
             ConsoleUtils.log("argEle", currentArg);
         }
         return currentArg;
+    }
+
+    public static <T extends PsiNameIdentifierOwner> void navigateToNamedElement(PsiElement pe, Class<T> clazz) {
+        final T parentOfType = PsiTreeUtil.getParentOfType(pe, clazz);
+        if (parentOfType != null) {
+            PsiUtils.navigate(parentOfType.getNameIdentifier().getNavigationElement());
+        }
     }
 }
