@@ -40,8 +40,9 @@
 后面会增加更多实用的action
 
 # Donation
-![weixin](./screenshot/weixin.jpg "weixin")
-![alipay](./screenshot/alipay.jpg "alipay")
+Wechat             |  Alipay
+:-------------------------:|:-------------------------:
+![weixin](./screenshot/wechat.jpg "weixin")  |  ![alipay](./screenshot/alipay.png "alipay")
 
 如果觉得这个项目对你有帮助，欢迎捐赠！
 
