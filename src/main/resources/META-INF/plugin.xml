@@ -1,17 +1,20 @@
 <idea-plugin>
     <id>github.zgqq.intellij-enhance</id>
-    <name>intellij enhance</name>
-    <vendor email="zgqjava@gmail.com" url="http://github.com">xa</vendor>
+    <name>Intellij enhance</name>
+    <vendor email="zgqjava@gmail.com" url="https://github.com/zgqq/intellij-enhance">xa</vendor>
 
-    <description>add more features to nice intellij plugin</description>
+    <description>Add some useful actions to Intellij IDEA, such as ChangeArgument, DeleteMethod,
+        GoMethodName and so on.
+    </description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
+
     <!-- uncomment to enable plugin in all products
      <depends>com.intellij.modules.lang</depends>
     -->
 
-    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
     <depends optional="true" config-file="emacsIDEAs.xml">emacsIDEAs</depends>
     <depends optional="true">IdeaVIM</depends>
 
@@ -24,19 +27,6 @@
         <!-- Add your extensions here -->
     </extensions>
 
-    <!--<actions>-->
-    <!-- Add your actions here -->
-    <!--<group id="MyPlugin.SampleMenu" text="Greeting" description="Greeting menu">-->
-    <!--<add-to-group group-id="MainMenu" anchor="last"/>-->
-    <!--&lt;!&ndash;<action id="Myplugin.Textboxes" class="github.zgqq.intellij.enhance.TestAction" text="Hello"&ndash;&gt;-->
-    <!--&lt;!&ndash;description="Says hello"/>&ndash;&gt;-->
-    <!--<action id="Enhance.JumpAndGoDefinition" class="github.zgqq.intellij.enhance.JumpAndGoDefinitionAction"-->
-    <!--text="JumpAndGoDefinition"-->
-    <!--description="JumpAndGoDefinition"/>-->
-    <!--</group>-->
-
-
-    <!--</actions>-->
 
     <actions>
         <group id="Enhance.Navigation" text="Enhance.Navigation" description="Enhance.Navigation">
