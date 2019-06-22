@@ -13,7 +13,7 @@
 
     <depends>com.intellij.modules.platform</depends>
     <depends optional="true" config-file="emacsIDEAs.xml">emacsIDEAs</depends>
-    <depends>IdeaVIM</depends>
+    <depends optional="true">IdeaVIM</depends>
 
 
     <extensions defaultExtensionNs="com.intellij">
@@ -37,4 +37,70 @@
 
 
     <!--</actions>-->
+
+    <actions>
+        <group id="Enhance.Navigation" text="Enhance.Navigation" description="Enhance.Navigation">
+            <action id="Enhance.GotoDeclarationByVariable" class="github.zgqq.intellij.enhance.GotoDeclarationByVariableAction"
+                    text="GotoDeclarationByVariable"
+                    description="GoDeclarationByVariable"/>
+            <action id="Enhance.GotoMethodName" class="github.zgqq.intellij.enhance.GotoMethodNameAction"
+                    text="GotoMethodName"
+                    description="GotoMethodName"/>
+            <action id="Enhance.GotoClassName" class="github.zgqq.intellij.enhance.GotoClassNameAction"
+                    text="GotoClassName"
+                    description="GotoClassName"/>
+        </group>
+        <group id="Enhance.Change" text="Enhance.Change" description="Enhance.Change">
+            <action id="Enhance.JumpAndChangeWord" class="github.zgqq.intellij.enhance.JumpAndChangeWordAction"
+                    text="JumpAndChangeWord"
+                    description="JumpAndChangeWord"/>
+        </group>
+        <group id="Enhance.Copy" text="Enhance.Copy" description="Enhance.Copy">
+            <action id="Enhance.CopyMethod" class="github.zgqq.intellij.enhance.CopyWholeMethodAction"
+                    text="CopyMethod"
+                    description="CopyMethod"/>
+            <action id="Enhance.CopyIfStatement" class="github.zgqq.intellij.enhance.CopyIfStatementAction"
+                    text="CopyIfStatement"
+                    description="CopyIfStatement"/>
+            <action id="Enhance.ChangeArgument" class="github.zgqq.intellij.enhance.ChangeArgumentAction"
+                    text="ChangeArgument"
+                    description="ChangeArgument"/>
+        </group>
+        <group id="Enhance.Delete" text="Enhance.Delete" description="Enhance.Delete">
+            <action id="Enhance.DeleteMethod" class="github.zgqq.intellij.enhance.DeleteWholeMethodAction"
+                    text="DeleteMethod"
+                    description="DeleteMethod"/>
+            <action id="Enhance.DeleteArgument" class="github.zgqq.intellij.enhance.DeleteArgumentAction"
+                    text="DeleteArgument"
+                    description="DeleteArgument"/>
+        </group>
+        <group id="Enhance.Convert" text="Enhance.Convert" description="Enhance.Convert">
+            <action id="Enhance.ConvertRedisKey" class="github.zgqq.intellij.enhance.ConvertRedisFormatAction"
+                    text="ConvertRedisKey"
+                    description="ConvertRedisKey"/>
+        </group>
+        <group id="Enhance.Show" text="Enhance.Show" description="Enhance.Show">
+            <action id="Enhance.ShowPsiElement" class="github.zgqq.intellij.enhance.ShowPsiElementAction"
+                    text="ShowPsiElement"
+                    description="ShowPsiElement"/>
+            <action id="Enhance.ShowParentAction" class="github.zgqq.intellij.enhance.ShowParentAction"
+                    text="ShowParentAction"
+                    description="ShowParentAction"/>
+        </group>
+        <group id="Enhance.Create" text="Enhance.Create" description="Enhance.Create">
+            <action id="Enhance.CreateRedisKey" class="github.zgqq.intellij.enhance.CreateRedisFieldAction"
+                    text="CreateRedisKey"
+                    description="CreateRedisKey"/>
+        </group>
+        <group id="Enhance.Indent" text="Enhance.Indent" description="Enhance.Indent">
+            <action id="Enhance.AutoIndent" class="github.zgqq.intellij.enhance.AutoIndentAction"
+                    text="AutoIndent"
+                    description="AutoIndent"/>
+        </group>
+        <group id="Enhance.Select" text="Enhance.Select" description="Enhance.Select">
+            <action id="Enhance.SelectMethod" class="github.zgqq.intellij.enhance.SelectWholeMethodAction"
+                    text="SelectMethod"
+                    description="SelectMethod"/>
+        </group>
+    </actions>
 </idea-plugin>

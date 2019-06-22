@@ -11,7 +11,7 @@ import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTypesUtil;
 import org.jetbrains.annotations.NotNull;
 
-public class GoDeclarationByVariableAction extends AnAction {
+public class GotoDeclarationByVariableAction extends AnAction {
     private static final Logger logger = Logger.getInstance(JumpAndChangeWordAction.class);
 
     @Override

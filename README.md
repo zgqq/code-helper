@@ -1,5 +1,5 @@
 # intellij-enhance
-增加一些非常好用的action，得益于IDEA强大的PSI，所以本插件能够精准增强代码导航，代码修改等功能，相信用了就离不开了
+增加一些非常好用的action，这些action都是平时实战（搬砖) 得出来的，个人感觉非常好用的，得益于IDEA强大的PSI，所以本插件能够精准增强代码导航，代码修改等功能
 
 # Usages
 - 配置成快捷键
@@ -36,4 +36,4 @@
 ![GotoClassNameAction](./screenshot/gotoclassname.gif "GotoClassNameAction")
 
 # Future
-这些action都是平时实战（搬砖) 得出来的，个人感觉非常好用的，后面会增加更多实用的action
+后面会增加更多实用的action

@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class ConsoleUtils {
 
-    static boolean needLog = true;
+    static boolean needLog = false;
     private static final Logger logger = Logger.getInstance(ConsoleUtils.class);
 
     public static void logCaret(CaretModel caretModel) {

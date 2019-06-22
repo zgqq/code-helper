@@ -11,7 +11,7 @@ import com.intellij.psi.*;
 import com.intellij.psi.util.PsiTreeUtil;
 import org.jetbrains.annotations.NotNull;
 
-public class DeleteInnerArgumentAction extends AnAction {
+public class ChangeArgumentAction extends AnAction {
     private static final Logger logger = Logger.getInstance(JumpAndChangeWordAction.class);
 
 
