@@ -2,6 +2,7 @@
     <id>github.zgqq.intellij-enhance</id>
     <name>Intellij enhance</name>
     <vendor email="zgqjava@gmail.com" url="https://github.com/zgqq/intellij-enhance">xa</vendor>
+    <idea-version since-build="183.2940.10"/>
 
     <description>Add some useful actions to Intellij IDEA, such as ChangeArgument, DeleteMethod,
         GoMethodName and so on.

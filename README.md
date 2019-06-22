@@ -1,5 +1,6 @@
 # intellij-enhance
-增加一些非常好用的action，这些action都是平时实战（搬砖) 得出来，个人感觉非常好用，得益于IDEA强大的PSI，所以本插件能够精准增强代码导航，代码修改等功能
+增加一些非常好用的action，这些action都是平时实战（搬砖) 得出来，得益于IDEA强大的PSI，所以本插件能够精准增强代码导航，代码修改等功能，
+项目目的就是消除繁琐重复操作，提高生产力
 
 # Usages
 - 配置成快捷键
@@ -38,4 +39,9 @@
 # Future
 后面会增加更多实用的action
 
+# Donation
+![weixin](./screenshot/weixin_pay.tiff "weixin")
+![alipay](./screenshot/alipay.tiff "alipay")
+
+如果觉得这个项目对你有帮助，欢迎捐赠！
 
