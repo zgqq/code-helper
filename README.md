@@ -26,6 +26,6 @@
 - 应用场景：
  * 有时候你需要查看哪些地方调用了光标所在方法， 而且方法很长的时候， 你可以使用 快捷键执行这个action，然后再 使用快捷键 Goto Declaration 找到调用这个方法的地方
 
-![GotoMethodNameAction](./screenshot/gotomethodname.gif.gif "GotoMethodNameAction")
+![GotoMethodNameAction](./screenshot/gotomethodname.gif "GotoMethodNameAction")
 
 ## GotoClassNameAction
