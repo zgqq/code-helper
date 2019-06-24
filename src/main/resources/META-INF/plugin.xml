@@ -18,7 +18,7 @@
     <depends>com.intellij.modules.java</depends>
     <depends optional="true" config-file="emacsIDEAs.xml">emacsIDEAs</depends>
     <depends optional="true" config-file="emacsIDEAs.xml">IdeaVIM</depends>
-    <depends>JavaScript</depends>
+    <!--<depends optional="true">JavaScript</depends>-->
 
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow id="ShowPsiElement"
@@ -56,9 +56,9 @@
             <action id="Enhance.DeleteMethod" class="github.zgqq.intellij.enhance.DeleteWholeMethodAction"
                     text="DeleteMethod"
                     description="DeleteMethod"/>
-            <action id="Enhance.DeleteArgument" class="github.zgqq.intellij.enhance.DeleteArgumentAction"
-                    text="DeleteArgument"
-                    description="DeleteArgument"/>
+            <!--<action id="Enhance.DeleteArgument" class="github.zgqq.intellij.enhance.ChangeArgumentAction"-->
+                    <!--text="DeleteArgument"-->
+                    <!--description="DeleteArgument"/>-->
         </group>
         <group id="Enhance.Convert" text="Enhance.Convert" description="Enhance.Convert">
             <action id="Enhance.ConvertRedisKey" class="github.zgqq.intellij.enhance.ConvertRedisFormatAction"

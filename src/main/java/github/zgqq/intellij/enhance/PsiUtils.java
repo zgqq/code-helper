@@ -9,6 +9,7 @@ import com.intellij.psi.util.PsiTreeUtil;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 public class PsiUtils {
 
@@ -81,8 +82,8 @@ public class PsiUtils {
         return mostNearExpression;
     }
 
-    public static PsiExpression findNextArgument(PsiElement parentOfType, int offset) {
-        PsiExpression currentArg = null;
+    public static PsiElement findNextArgument(PsiElement parentOfType, int offset) {
+        PsiElement currentArg = null;
         PsiExpressionList psiExpressionList;
         final Collection<PsiExpressionList> childrenOfType = PsiTreeUtil.findChildrenOfType(parentOfType, PsiExpressionList.class);
         psiExpressionList = PsiUtils.findChildAfterOffset(childrenOfType, offset);
@@ -99,5 +100,21 @@ public class PsiUtils {
         if (parentOfType != null) {
             PsiUtils.navigate(parentOfType.getNameIdentifier().getNavigationElement());
         }
+    }
+
+    public static <T extends PsiElement> T getMostNearBeforeElement(Collection<T> childrenOfType, int offset) {
+        int minDistance = Integer.MAX_VALUE;
+        T mostNearExpression = null;
+        for (T expressionList : childrenOfType) {
+            final int textOffset = expressionList.getTextOffset();
+            if (offset > textOffset) {
+                int distance =  offset - textOffset;
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    mostNearExpression = expressionList;
+                }
+            }
+        }
+        return mostNearExpression;
     }
 }
