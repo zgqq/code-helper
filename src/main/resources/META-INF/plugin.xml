@@ -17,7 +17,7 @@
 
     <depends>com.intellij.modules.java</depends>
     <depends optional="true" config-file="emacsIDEAs.xml">emacsIDEAs</depends>
-    <depends optional="true">IdeaVIM</depends>
+    <depends optional="true" config-file="emacsIDEAs.xml">IdeaVIM</depends>
 
 
     <extensions defaultExtensionNs="com.intellij">
@@ -40,11 +40,6 @@
             <action id="Enhance.GotoClassName" class="github.zgqq.intellij.enhance.GotoClassNameAction"
                     text="GotoClassName"
                     description="GotoClassName"/>
-        </group>
-        <group id="Enhance.Change" text="Enhance.Change" description="Enhance.Change">
-            <action id="Enhance.JumpAndChangeWord" class="github.zgqq.intellij.enhance.JumpAndChangeWordAction"
-                    text="JumpAndChangeWord"
-                    description="JumpAndChangeWord"/>
         </group>
         <group id="Enhance.Copy" text="Enhance.Copy" description="Enhance.Copy">
             <action id="Enhance.CopyMethod" class="github.zgqq.intellij.enhance.CopyWholeMethodAction"
