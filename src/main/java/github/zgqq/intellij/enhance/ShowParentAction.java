@@ -14,7 +14,7 @@ public class ShowParentAction extends AnAction {
     @Override
     public void actionPerformed(@NotNull AnActionEvent e) {
         Editor editor = CommonUtils.getEditorFrom(e);
-        PsiJavaFile data = (PsiJavaFile) e.getData(LangDataKeys.PSI_FILE);
+        PsiElement data = e.getData(LangDataKeys.PSI_FILE);
 
         final ConsoleView consoleView = ConsoleUtils.getConsoleView(e);
 
