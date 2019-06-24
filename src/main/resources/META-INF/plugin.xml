@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>github.zgqq.intellij-enhance</id>
-    <name>Intellij enhance</name>
+    <name>Action Enhancement</name>
     <vendor email="zgqjava@gmail.com" url="https://github.com/zgqq/intellij-enhance">xa</vendor>
     <idea-version since-build="183.2940.10"/>
 
@@ -18,7 +18,6 @@
     <depends>com.intellij.modules.java</depends>
     <depends optional="true" config-file="emacsIDEAs.xml">emacsIDEAs</depends>
     <depends optional="true" config-file="emacsIDEAs.xml">IdeaVIM</depends>
-
 
     <extensions defaultExtensionNs="com.intellij">
         <toolWindow id="ShowPsiElement"
