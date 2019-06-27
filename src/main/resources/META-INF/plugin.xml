@@ -5,8 +5,18 @@
     <idea-version since-build="183.2940.10"/>
 
     <description>Add some useful actions to Intellij IDEA, such as ChangeArgument, DeleteMethod,
-        GoMethodName and so on.
+        GotoMethodName, GotoClassName and so on.
     </description>
+
+    <change-notes><![CDATA[
+      <p>1.3:</p>
+      <ul>
+        <li>Fix action group id</li>
+        <li>Make ChangeArgument smarter </li>
+      </ul>
+    ]]></change-notes>
+
+
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
          on how to target different products -->
